@@ -13,7 +13,14 @@ class Test extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('test', function (Blueprint $table) {
+            $table->id('id-test');
+            $table->string('t-name');
+            $table->string('t-description');
+            $table->string('t-durée');
+            $table->string('t-type');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class Test extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('test');
     }
 }

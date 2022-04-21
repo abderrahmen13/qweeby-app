@@ -21,7 +21,7 @@ use App\Http\Controllers\Auth\LoginController;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
+Route::group(['middleware' => 'throttle:api'], function() {
     Route::get('users', [UserController::class, 'index']);
     Route::get('users/{id}', [UserController::class, 'show']);
     Route::post('users', [UserController::class, 'store']);

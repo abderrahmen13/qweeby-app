@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DomaineCompetence extends Migration
+class Profil extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class DomaineCompetence extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('profils', function (Blueprint $table) {
+            $table->id();
+            $table->integer('identite');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,7 @@ class DomaineCompetence extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('profil');
+
     }
 }

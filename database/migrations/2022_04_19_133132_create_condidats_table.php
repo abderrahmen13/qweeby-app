@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Profil extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class Profil extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('condidats', function (Blueprint $table) {
+            $table->id();
+            $table->string('c-path-cv');
+            $table->string('c-path-other');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Profil extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('condidats');
     }
-}
+};
